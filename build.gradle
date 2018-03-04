@@ -1,0 +1,44 @@
+group 'fr.litarvan.ldk'
+version '1.0.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'https://wytrem.github.io/maven'
+    }
+}
+
+dependencies {
+    // Making desktop links on windows
+    compile files('libs/jshortcut.jar')
+
+    // To read config
+    compile 'org.json:json:20180130'
+
+    // To extract electron
+    compile 'org.apache.commons:commons-compress:1.16.1'
+    compile 'org.tukaani:xz:1.8'
+
+    // Logging
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'net.wytrem:wylog:2.0'
+}
+
+task fatjar(type: Jar) {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
+    manifest {
+        attributes 'Main-Class': 'fr.litarvan.ldk.bootstrap.Main'
+    }
+
+    with jar
+}

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+ERROR_TITLE="Impossible de lancer $NAME"
+ERROR_MSG="$NAME a besoin de Java 6 ou plus pour se lancer."
+DOWNLOAD_URL="https://www.java.com/fr/download/"
+
+DIR=$(cd "$(dirname "$0")"; pwd)
+
+if type -p java; then
+    _java="java"
+elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]]; then
+    _java="$JAVA_HOME/bin/java"
+else
+    osascript \
+	-e "set question to display dialog \"$ERROR_MSG\" with title \"$ERROR_TITLE\" buttons {\"Annuler\", \"Télécharger\"} default button 2" \
+	-e "if button returned of question is equal to \"Télécharger\" then open location \"$DOWNLOAD_URL\""
+	echo "$ERROR_TITLE"
+	echo "$ERROR_MSG"
+	exit 1
+fi
+
+exec $_java -Dapple.laf.useScreenMenuBar=true -Dcom.apple.macos.use-file-dialog-packages=true -Xdock:name="$NAME" -Xdock:icon="$DIR/../Resources/icon.icns" -jar "$PATH"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=$NAME
+Comment=Play $NAME
+Comment[fr_FR]=Jouer à $NAME
+Categories=Game
+Icon=$ICON
+Terminal=false
+Exec=/usr/bin/env java -jar $PATH

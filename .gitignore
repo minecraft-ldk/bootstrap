@@ -1,0 +1,7 @@
+.idea/
+.gradle/
+build/
+out/
+src/main/resources/electron.tar.xz
+src/main/resources/icon.png
+src/main/resources/splash.png

@@ -1,0 +1,20 @@
+{
+  "id": "my-server",
+  "title": "MyServer",
+  "icon": "icon.png",
+  "splash": "splash.png",
+  "updater-url": "http://127.0.0.1/",
+
+  "messages": {
+    "base-error": "Erreur majeure",
+    "electron-error": "Impossible d'installer les fichiers nécéssaires",
+    "update-error": "Impossible de mettre à jour le launcher",
+    "install-error": "Le raccourci vers le launcher n'a pas pu être créé",
+    "launch-error": "Impossible de lancer le launcher"
+  },
+
+  "electron-archive": "electron.tar.xz",
+  "mac-launch-script": "MacLaunchScript",
+  "mac-plist": "Info.plist",
+  "desktop-entry-template": "desktop-entry.desktop"
+}
