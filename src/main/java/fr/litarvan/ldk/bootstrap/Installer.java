@@ -71,8 +71,8 @@ public class Installer
         log.info("Creating Windows desktop shortcut in {}", desktop);
 
         JShellLink link = new JShellLink();
-        link.setName(config.getString("name"));
-        link.setPath(System.getProperty("java.home") + "/bin/java.exe");
+        link.setName(config.getString("title"));
+        link.setPath(System.getProperty("java.home") + "/bin/javaw.exe");
         link.setArguments("-jar " + jarFile.getAbsolutePath());
         link.setIconLocation(windowsIcon.getAbsolutePath());
         link.setFolder(desktop);
