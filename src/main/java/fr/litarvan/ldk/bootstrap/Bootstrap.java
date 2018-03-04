@@ -166,7 +166,7 @@ public class Bootstrap
 
         System.out.println("-------------------------------------\n");
 
-        LogsManager logsManager = new LogsManager(p, new File(folder, "launchers/" + config.getString("id") + ".logs"));
+        LogsManager logsManager = new LogsManager(p, new File(folder, "launcher/" + config.getString("id") + ".logs"));
         try
         {
             logsManager.start();
