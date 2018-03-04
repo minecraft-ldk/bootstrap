@@ -151,21 +151,30 @@ public class Bootstrap
         log.info("Total time : {}ms", System.currentTimeMillis() - time);
 
         log.info("Launching...");
+        Process p;
         try
         {
-            Process p = electronManager.launch(launcherFolder, ".");
-            p.waitFor();
+            p = electronManager.launch(launcherFolder, ".");
         }
         catch (IOException e)
         {
             log.error("Unexpected error during launch, exiting", e);
             JOptionPane.showMessageDialog(splash, messages.getString("launch-error") + " : " + e.getMessage() + " (" + e.getClass().getName() + ")", "Erreur", JOptionPane.ERROR_MESSAGE);
-        }
-        catch (InterruptedException ignored)
-        {
+
+            return;
         }
 
-        log.info("Launcher closed");
+        System.out.println("-------------------------------------\n");
+
+        LogsManager logsManager = new LogsManager(p, new File(folder, "launchers/" + config.getString("id") + ".logs"));
+        try
+        {
+            logsManager.start();
+        }
+        catch (IOException e)
+        {
+            log.warn("Exception while writing logs, cancelling", e);
+        }
     }
 
     protected File getFolder(OS os)
