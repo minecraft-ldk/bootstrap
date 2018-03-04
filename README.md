@@ -3,7 +3,7 @@
 The bootstrap is an application that does the following :
 
 * Self-extract (if not already done) a packaged electron at ~/.minecraft/electron
-* Download/update a launcher from a remote "files/" folder (where should be a updater.php script from [here](https://github.com/minecraft-ldk/lite-bootstrap-remote))
+* Download/update a launcher from a remote "files/" folder (where should be a updater.php script from [here](https://github.com/minecraft-ldk/lite-updater-remote))
 * Self copy (if not already done) itself to ~/.minecraft/launcher
 * Install a shortcut (if not already done) on the desktop (application on mac, desktop entry on linux) to its copy
 * Launch the downloaded launcher
