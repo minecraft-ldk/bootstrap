@@ -4,4 +4,6 @@ build/
 out/
 src/main/resources/electron.tar.xz
 src/main/resources/icon.png
+src/main/resources/icon.ico
+src/main/resources/icon.icns
 src/main/resources/splash.png

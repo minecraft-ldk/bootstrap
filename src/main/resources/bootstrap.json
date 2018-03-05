@@ -13,6 +13,7 @@
     "launch-error": "Impossible de lancer le launcher"
   },
 
+  "windows-icon": "icon.ico",
   "electron-archive": "electron.tar.xz",
   "mac-launch-script": "MacLaunchScript",
   "mac-plist": "Info.plist",
