@@ -29,12 +29,18 @@ dependencies {
     compile 'net.wytrem:wylog:2.0'
 }
 
+jar {
+    from 'LICENSE'
+}
+
 task fatjar(type: Jar) {
     from {
         configurations.compile.collect {
             it.isDirectory() ? it : zipTree(it)
         }
     }
+
+    from 'LICENSE'
 
     manifest {
         attributes 'Main-Class': 'fr.litarvan.ldk.bootstrap.Main'
